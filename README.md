@@ -4,3 +4,4 @@
 | --- | -------------------------------- | ------------ |
 | 1   | Contiguous substrings            | :star::star: |
 | 2   | Basic parsing and filtering data | :star::star: |
+| 3   | Ranges                           | :star::star: |
