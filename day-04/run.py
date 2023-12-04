@@ -30,16 +30,37 @@ def parse_line(line):
     if total > 0:
         value = 2 ** (total - 1)
 
-    return value
+    return {"winning": winning, "hand": hand, "points": value, "total": total}
 
 
 def part_1(input):
     total = 0
     for line in input.split("\n"):
-        print(line)
-        total += parse_line(line)
+        total += parse_line(line)["points"]
 
-    print("total", total)
+    return total
 
 
-part_1(input)
+def part_2(input):
+    # Collect hand cards
+    hand = []
+
+    for line in input.split("\n"):
+        hand.append([parse_line(line)["hand"], 1])
+
+    # Play game
+    for i, line in enumerate(input.split("\n")):
+        round = parse_line(line)
+
+        for j in range(i + 1, i + round["total"] + 1):
+            hand[j][1] += 1 * hand[i][1]
+
+    total = 0
+    for h in hand:
+        total += h[1]
+
+    return total
+
+
+print("Part 1: ", part_1(input))
+print("Part 2: ", part_2(input))
