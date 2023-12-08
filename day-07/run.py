@@ -83,15 +83,12 @@ def part_1(input):
 
         sorted_hands_and_bids.append((hand, bid))
 
-    sorted_hands_and_bids = sorted(
-        sorted_hands_and_bids, key=cmp_to_key(hand_compare), reverse=True
-    )
+    sorted_hands_and_bids = sorted(sorted_hands_and_bids, key=cmp_to_key(hand_compare))
     pprint(sorted_hands_and_bids[0])
 
     total = 0
     for i, (hand, bid) in enumerate(sorted_hands_and_bids):
-        multiplier = max_multiplier - i
-        total += multiplier * int(bid)
+        total += (i + 1) * int(bid)
 
     return total
 
