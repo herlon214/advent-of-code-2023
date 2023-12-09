@@ -14,7 +14,7 @@ def extrapolate(numbers):
 
         only_zeroes = True
         for i in range(len(items) - 1, 0, -1):
-            diff = abs(items[i] - items[i - 1])
+            diff = items[i] - items[i - 1]
             new_line.append(diff)
 
             if diff != 0:
@@ -37,16 +37,30 @@ def extrapolate(numbers):
         sum = values[i][-1] + numbers[-1]
         values[i + 1].append(sum)
 
-    for numbers in values:
-        print(numbers)
-
     return values[-1][-1]
 
 
 lines = input.splitlines()
-total = 0
-for line in lines:
-    items = list(map(lambda x: int(x), filter(lambda x: x.isdigit(), line.split(" "))))
-    total += extrapolate(items)
 
-print("Part 1: ", total)
+
+def part_1():
+    total = 0
+    for line in lines:
+        items = list(map(lambda x: int(x), filter(lambda x: x != "", line.split(" "))))
+        total += extrapolate(items)
+
+    return total
+
+
+def part_2():
+    total = 0
+    for line in lines:
+        items = list(map(lambda x: int(x), filter(lambda x: x != "", line.split(" "))))
+        items.reverse()
+        total += extrapolate(items)
+
+    return total
+
+
+print("Part 1: ", part_1())
+print("Part 2: ", part_2())
