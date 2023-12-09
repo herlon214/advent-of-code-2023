@@ -8,4 +8,4 @@
 | 4   | Basic parsing and ranges                            | :star::star: |
 | 5   | Ranges, couldn't figure out part 2                  | :star:       |
 | 6   | Nothing special but it ran slow in python (somehow) | :star::star: |
-| 6   | Basic sorting and using combinations for part 2     | :star::star: |
+| 7   | Basic sorting and using combinations for part 2     | :star::star: |
